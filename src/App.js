@@ -9,6 +9,7 @@ function App() {
   let [따봉, 따봉변경] = useState(0);
   let [modal, modal변경] = useState(false);
 
+
   // function 제목바꾸기(){
   //   var newArray = [...글제목];
   //   newArray[0] = '여자 코트 추천';
@@ -37,13 +38,25 @@ function App() {
         <hr/>
       </div>
 
-      <button onClick={ ()=>{ modal변경(true) } }>모달 창</button>
+      {/* <button onClick={ ()=>{ modal변경(true) } }>모달 창</button>
 
       {
         // 삼향연산자 
         modal === true
         ? <Modal></Modal>
         : null
+      } */}
+
+      {
+        글제목.map(function(a){
+          return (
+            <div className="list">
+              <h3> { a }  <span onClick={ ()=>{ 따봉변경(따봉 + 1) } }>👍</span> {따봉} </h3>
+              <p>2월 18일 발행</p>
+              <hr/>
+            </div>
+          )
+        })
       }
       
     </div>
