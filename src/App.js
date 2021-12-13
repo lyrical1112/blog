@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
 
-  let [글제목, 글제목변경] = useState(['남자 코트 추천', '강남 우동 맛집', '박스오피스 순위']);
+  let [글제목, 글제목변경] = useState(['남자 best상의', '성수 맛집 리뷰순위', '박스오피스 순위']);
   let [따봉, 따봉변경] = useState(0);
   let [modal, modal변경] = useState(false);
   let [누른제목 , 누른제목변경] = useState(0);
@@ -42,6 +42,15 @@ function App() {
       <button onClick={ ()=>{ 누른제목변경(2) } }>버튼3</button> */}
 
       {/* <input onChange={ (e)=>{ 입력값변경( e.target.value) } } /> */}
+
+      <div className='publish'>
+        <input  onChange={ (e)=>{ 입력값변경( e.target.value) } }  />
+        <button onClick={ ()=>{ 
+          var arrayCopy = [...글제목];
+          arrayCopy.unshift(입력값);
+          글제목변경(arrayCopy);
+        } }>저장</button>
+      </div>
 
       <button onClick={ ()=>{ modal변경(!modal) } }>열고닫기</button>
       {
