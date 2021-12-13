@@ -22,31 +22,7 @@ function App() {
         <div>개발 Blog</div>
       </div>
       {/* <button onClick={ 제목바꾸기 }>버튼</button> */}
-      <div className="list">
-        <h3> { 글제목[0] } <span onClick={ ()=>{ 따봉변경(따봉 + 1) } }>👍</span> {따봉} </h3>
-        <p>2월 17일 발행</p>
-        <hr/>
-      </div>
-      <div className="list">
-        <h3> { 글제목[1] } </h3>
-        <p>2월 18일 발행</p>
-        <hr/>
-      </div>
-      <div className="list">
-        <h3> { 글제목[2] } </h3>
-        <p>2월 19일 발행</p>
-        <hr/>
-      </div>
-
-      {/* <button onClick={ ()=>{ modal변경(true) } }>모달 창</button>
-
-      {
-        // 삼향연산자 
-        modal === true
-        ? <Modal></Modal>
-        : null
-      } */}
-
+      
       {
         글제목.map(function(a){
           return (
@@ -58,16 +34,24 @@ function App() {
           )
         })
       }
+
+      <button onClick={ ()=>{ modal변경(true) } }>열고닫기</button>
+      {
+        // 삼향연산자 
+        modal === true
+        ? <Modal 글제목={글제목} ></Modal>
+        : null
+      }
       
     </div>
   );
 }
 
-function Modal(){
+function Modal(props){
   return(
     <>
       <div className='modal'>
-        <h2>제목</h2>
+        <h2>{ props.글제목[0] }</h2>
         <p>날짜</p>
         <p>상세내용</p>
       </div>
